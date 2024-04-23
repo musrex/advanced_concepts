@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherly</title>
+</head>
+<body>
+    <header>
+        <h1>Weather Forecast</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{ message }}<p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </header>
+    <nav>
+    </nav>
+    <main>
+        <p>Try to enter coordinates, like 42, -72</p>
+        <form method="POST">
+            <label for="lat">Latitude:</label><br>
+            <input type="text" id="lat" name="lat"><br>
+            <label for="long">Longitude:</label><br>
+            <input type="text" id="long" name="long"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <footer>
+        <br>
+        <p>Leandro Lopez</p>
+        <p>Merrimack College</p>
+        <p>Advanced Concepts</p>
+    </footer>
+    <!-- JavaScript files at the end so the HTML can render first -->
+</body>
+</html>
+

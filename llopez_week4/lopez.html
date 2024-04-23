@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lopez.css">
+</head>
+<body>
+    <header> 
+    <h1>Leandro Lopez</h1>
+    <h2>Merrimack College</h2>
+    <h3>Advanced Programming Concepts - CSC6304</h3>
+    
+    <nav>
+        <p>Use the buttons to zoom.</p>
+        <p>Mouse over to take a closer look.</p>
+        <hr/>
+        <button onclick="document.getElementById('painting').style.height='100px'">Zoom out</button>
+        <button onclick="document.getElementById('painting').style.height='500px'">Reset</button>
+        <button onclick="document.getElementById('painting').style.height='1000px'">Zoom in</button>
+    </nav>
+    </header>
+    
+    <main>
+        <img id="painting" src="Telemaco_Signorini_002.jpeg" alt="A painting titled Leith (1881) by Telemaco Signorini. The painting depicts an urban environment in Scotland."/>
+        <p id="image_caption">Leith (1881), Telemaco Signorini</p> 
+    </main>
+
+</body>
+</html>

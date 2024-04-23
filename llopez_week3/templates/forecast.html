@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherly</title>
+</head>
+<body>
+    {% if forecast %}
+        <h1>Weather Forecast</h1>
+        <p>{{ forecast }}</p>
+    {% else %}
+        <h1>Error</h1>
+        <p>{{ error }}</p>
+    {% endif %}
+    <a href="{{ url_for('main') }}">Try another location</a>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --main-color: black;
+        --number-color: white;
+        --number-hover: lightgrey;
+        --operators-color: teal;
+        --operators-hover: #004040;
+        --clear-color: red;
+        --sea-blue: #006994;
+      }
+
+      body {
+        background-color: white;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .calculator {
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        width: 240px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      h1 {
+        margin: 0 auto 1px;
+        padding-right: 3px;
+        color: #123524;
+        font-style: italic;
+        text-shadow: 2px 2px white;
+        text-align: right;
+      }
+
+      input[type="text"] {
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        width: 100%;
+        height: 40px;
+        text-align: right;
+        margin-bottom: 10px;
+        font-size: 50px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        color: var(--number-color);
+        display: block;
+        margin: 1em auto 0.25em;
+        padding: 0 4px 5px 0;
+        text-shadow: 2px 2px var(--operators-color);
+      }
+
+      .btns-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2px;
+        margin: auto;
+      }
+      .btns-container button {
+        width: 100%;
+        height: 50px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btns-container button:active {
+        background-color: var(--main-color);
+        color: black;
+      }
+
+      #submit {
+        width: 100%;
+        margin: 0.3em auto;
+        padding-top: 0.15em;
+        padding-bottom: 0.4em;
+        border: none;
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 30px;
+      }
+
+      #clear {
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background-color: var(--clear-color);
+        color: white;
+      }
+
+      #clear:hover {
+        background-color: darkred;
+      }
+
+      .number {
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background-color: var(--number-color);
+      }
+
+      .number:hover {
+        background-color: var(--number-hover);
+      }
+
+      .operator {
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background-color: var(--operators-color);
+        color: white;
+      }
+
+      .operator:hover {
+        background-color: var(--operators-hover);
+      }
+
+      #square {
+        padding-top: -10em;
+      }
+
+      #delete {
+        background-color: var(--sea-blue);
+        color: white;
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      #delete:hover {
+        background-color: #00416a;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="calculator">
+      <input type="text" id="result" readonly />
+      <div class="btns-container">
+        <button id="clear" onclick="clearInput()">C</button>
+
+        <button class="operator" onclick="appendInput('(')">(</button>
+        <button class="operator" onclick="appendInput(')')">)</button>
+        <button class="operator" onclick="appendInput('/')">/</button>
+        <button class="number" onclick="appendInput('7')">7</button>
+        <button class="number" onclick="appendInput('8')">8</button>
+        <button class="number" onclick="appendInput('9')">9</button>
+        <button class="operator" onclick="appendInput('*')">*</button>
+        <button class="number" onclick="appendInput('4')">4</button>
+        <button class="number" onclick="appendInput('5')">5</button>
+        <button class="number" onclick="appendInput('6')">6</button>
+        <button class="operator" onclick="appendInput('-')">-</button>
+        <button class="number" onclick="appendInput('1')">1</button>
+        <button class="number" onclick="appendInput('2')">2</button>
+        <button class="number" onclick="appendInput('3')">3</button>
+        <button class="operator" onclick="appendInput('+')">+</button>
+        <button class="number" onclick="appendInput('0')">0</button>
+        <button class="number" onclick="appendInput('.')">.</button>
+        <button id="delete" onclick="removeValue()">Del</button>
+      </div>
+      <button id="submit" onclick="calculate()">=</button>
+    </div>
+
+    <script type="text/javascript">
+      function clearInput() {
+        document.getElementById("result").value = "";
+      }
+      function appendInput(value) {
+        let currentValue = (document.getElementById("result").value += value);
+      }
+      function removeValue() {
+        let currentValue = document.getElementById("result").value;
+        document.getElementById("result").value = currentValue.slice(0, -1);
+      }
+
+      function calculate() {
+        var input = document.getElementById("result").value;
+        try {
+          var result = eval(input);
+          document.getElementById("result").value = result;
+        } catch (error) {
+          document.getElementById("result").value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
